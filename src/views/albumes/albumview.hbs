@@ -1,0 +1,65 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload New Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="card-body">
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" name="image" aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Upload Image</label>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="title" placeholder="Title" required>
+                 <input type="hidden" class="form-control" name="album" id="title" placeholder="Title" value="{{album._id}}" required>
+            </div>  
+                <div class="form-group">
+                <textarea  class="form-control" name="description" id="description" placeholder="Description... 50 characters max"></textarea>
+            </div>  
+               
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">upload</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+{{!-- Navegador foto en el album --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/gallery"><i class="fas fa-angle-left"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <ul class="navbar-nav ml-auto"> 
+         <li class="nav-item">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+            Add Picture
+        </button>
+        </li>
+</nav>
+{{!-- Pictures --}}
+<div class="container mx-auto animated fadeInDown p-4">
+  {{#each image}}
+  <div class="card-container">
+      <div class="card">
+        <img class="card-img-top" src="{{path}}" alt="Card image cap">
+        <div class="card-body card-body-back position-absolute">
+             <h5 class="card-title"><strong>{{title}}</strong></h5>
+            <p class="card-text">{{description}}</p>
+              <p class="card-text"><input type="hidden" id="created" value="{{created_at}}">{{created_at}}</p>
+              <a href="/imagen/{{_id}}" class="btn btn-back btn-primary mb-2">View Picture</a>
+              <a href="/image/{{_id}}/delete/allpicture" class="btn btn-back btn-danger mb-2">Delete</a>
+          </div>
+      </div>
+  </div>
+  {{/each}}
+</div>

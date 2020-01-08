@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after{margin: 0;padding: 0;}
+body{
+ color: black;
+ 
+}
+.btn{
+    opacity: 0.9;
+}
+.jumbotron{
+    background: black;
+    opacity: 0.6;
+    color: white;
+}
+.hello-b{
+  
+    position: relative;
+    overflow: hidden;
+    width: none;
+   
+    animation-duration: 2s;
+    animation-play-state: initial;
+    animation-name: hello;
+    animation-timing-function: ease-out;
+
+  
+}
+p{
+    font-size: 1.5em;
+}
+@keyframes hello{
+    0%,5%{
+        display: none;
+        width: 1px;
+    }
+    80%,100%{
+        width: 100%;
+    }
+}
+.display-4{
+    line-height: 1;
+    font-size: 5em;
+    
+}
+strong{
+    font-size: 0.7em;
+}
+
+.card-container{
+    display: inline-block;
+    perspective: 500px;
+    background: white;
+    width: 225px;
+    height: 271px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom:5px ;
+}
+.card-container:hover .card{
+    transform: rotateY(180deg);
+}
+.card-container:hover .card-body-back{
+    transform: rotateY(180deg);
+    visibility: visible;
+}
+.card{
+    transition: all .3s;
+    background: transparent;
+    transform-style: preserve-3d;
+    width: 100%;
+    border: none;
+
+}
+.card-title{
+    margin-bottom: 3px;
+}
+.card-body{
+    background-color: white;
+}
+.card-container:hover .card-body-hidden{
+    visibility: hidden;
+}
+.card-body-back{
+    visibility: hidden;
+    transform: rotateY(-180deg);
+    color: white;
+    height: 271px;
+    background-color: black;
+    width: 100%;
+    opacity: 0.8;
+    align-items: center;
+    background-origin: border-box;
+    background-size: cover;
+}
+.card-text{
+    font-size: 90%;
+    margin-bottom:2px;
+}
+
+.btn-back{
+    background-color: black;
+    opacity: 0.9;
+}
+.card-img-top{
+    width: 100%;
+}
+.card-img{
+    width: 210px;
+    height: 320px;
+}
+.list-group-items{
+    display: inline-block;
+    list-style: none;
+}
+
+

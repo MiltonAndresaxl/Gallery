@@ -1,0 +1,47 @@
+{{>navalb}}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form action="/new/album" method="POST" enctype="multipart/form-data">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create new album</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="card-body">
+          <div class="form-group">
+              <input type="text" class="form-control" name="title" id="title" placeholder="Album Title" required>
+              <input type="hidden" name="idfo">
+          </div>  
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Create</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+{{!-- albumes --}}
+<div class="container animated fadeInDown p-4">
+  <div class="row">
+    <div class="card-columns">
+      {{#each album}}
+        <div class=" card ">
+          <div class="card prounded">
+          <div class="card-body">
+             <h5 class="card-title"><strong>{{title}}</strong></h5>
+              <p class="card-text">{{create_at}}</p>
+              <input type="hidden" name="{{idfo}}">
+              <a href="/album/{{_id}}" class="btn btn-primary " >View Album</a>
+              <a href="/album/{{_id}}/delete" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

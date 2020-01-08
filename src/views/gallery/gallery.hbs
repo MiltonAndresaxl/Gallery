@@ -1,0 +1,26 @@
+{{>nav}}
+
+
+<!--Gallery-->
+<div class="container mx-auto animated fadeInDown p-4">
+  <ul id="content" class="list-groups">
+    {{#each image}}
+       <li class="list-group-items ">
+        <div class="card-container">
+          <div class="card">
+            <img class="card-img-top" src="{{path}}" alt="Card image cap">
+            <div class="card-body card-body-back position-absolute">
+                <h5 class="card-title"><strong>{{title}}</strong></h5>
+                <p class="card-text">{{description}}</p>
+                  <p class="card-text"><input type="hidden" id="created" value="{{created_at}}">{{created_at}}</p>
+                  <a href="/imagen/{{_id}}" class="btn btn-back btn-primary mb-2">View Picture</a>
+                  <a href="/album/{{album}}"  class="btn btn-back btn-success mb-2"  >Go to album</a>
+                  <a href="/image/{{_id}}/delete/allpicture" class="btn btn-back btn-danger mb-2">Delete</a>
+              </div>
+          </div>
+      </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
